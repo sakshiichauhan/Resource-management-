@@ -1,9 +1,8 @@
-import logo from './ui/Alpheric logo.png'; // Correctly importing logo
-import React from 'react';
+import assets from '../assets/Alphericlogo.png'; 
+import React, { useEffect } from 'react';
 import { Popover, PopoverTrigger, PopoverContent } from './ui/popover'; // Import Popover
 import { User2, LogOut } from 'lucide-react';
-import { Link } from 'react-router-dom'; // For routing
-import { useNavigate } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; // For routing
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setUser } from '../redux/authSlice'; 
@@ -12,17 +11,28 @@ import { USER_API_END_POINT } from '@/utils/constant';
 import { Button } from './ui/button'; // Assuming you're using Radix for buttons
 
 const Navbar = () => {
-  const { user } = useSelector((store) => store.auth);
+  const { user } = useSelector((store) => store.auth); // Access user from Redux store
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // Redirect to dashboard based on role (admin or employee)
+  useEffect(() => {
+    if (user) {
+      if (user.role === 'admin') {
+        navigate('/admindash');
+      } else if (user.role === 'employee') {
+        navigate('/employeedash');
+      }
+    }
+  }, [user, navigate]); // Re-run when `user` changes (after login or logout)
 
   // Logout handler
   const logoutHandler = async () => {
     try {
       const res = await axios.post(`${USER_API_END_POINT}/userlogout`, {}, { withCredentials: true });
       if (res.data.success) {
-        dispatch(setUser(null));
-        navigate("/");
+        dispatch(setUser(null)); // Remove user data from Redux
+        navigate("/"); // Redirect to the home page or login
         toast.success(res.data.message);
       }
     } catch (error) {
@@ -39,7 +49,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo Section */}
         <div className="flex items-center">
-          <img src={logo} alt="Alpheric Logo" className="w-10 h-auto mr-4" /> {/* Logo image */}
+          <img src={assets} alt="AlphericLogo.png" className="w-10 h-auto mr-4" />
           <h1 className="text-2xl text-white font-bold">AssetManagement</h1>
         </div>
 

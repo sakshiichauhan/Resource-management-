@@ -6,10 +6,11 @@ import { Button } from '../components/ui/button';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { USER_API_END_POINT } from '@/utils/constant';
-import { toast } from 'sonner'; // Import toast for notifications
-import { useDispatch, useSelector } from 'react-redux'; // Fixed missing imports
-import { setLoading } from '../redux/authSlice'; // Import setLoading action
-import { Loader2 } from 'lucide-react'; // Ensure this icon is properly installed
+import { toast } from 'sonner';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoading } from '../redux/authSlice';
+import { Loader2 } from 'lucide-react';
+
 
 const Signup = () => {
     const [input, setInput] = useState({
@@ -36,7 +37,7 @@ const Signup = () => {
 
         try {
             dispatch(setLoading(true)); // Start loading state
-            const res = await axios.post(`${USER_API_END_POINT}/userregister`, input, {
+            const res = await axios.post(`${USER_API_END_POINT}/userregister/`, input, {
                 headers: {
                     "Content-Type": "application/json",
                 },
