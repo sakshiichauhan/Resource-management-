@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import assets from "../assets/assetpic.png"; // Asset image path
-import { toast } from "sonner"; // Import toast from sonner
+import { toast } from "sonner";
+import assets from "../assets/assetpic.png";
 
 const LandingPage = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -10,20 +10,19 @@ const LandingPage = () => {
   };
 
   const closePopover = () => {
-    setIsPopoverOpen(false);  // Close the popover
+    setIsPopoverOpen(false);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-400 to-purple-600 text-gray-900 flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 py-12 relative">
       {/* Header Section */}
-      <div className="text-center space-y-6 animate__animated animate__fadeIn animate__delay-1s">
+      <header className="text-center space-y-6 animate__animated animate__fadeIn animate__delay-1s">
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight">
           Welcome to the Asset Management System
         </h1>
         <p className="mt-4 text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto text-gray-200">
           Manage your assets, employees, and operations effortlessly. Streamline workflows, increase productivity, and stay ahead with ease.
         </p>
-
         {/* Button Section */}
         <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center">
           <a
@@ -42,14 +41,14 @@ const LandingPage = () => {
             Sign Up
           </a>
         </div>
-      </div>
+      </header>
 
       {/* Image Section */}
       <div className="w-full mt-12 sm:mt-16 max-w-md sm:max-w-lg md:max-w-xl">
         <img
-          src={assets}  // Use the imported image here
+          src={assets}
           alt="Asset Management System illustration"
-          className="w-full h-auto rounded-3xl shadow-lg transition-transform transform hover:scale-105"
+          className="w-full h-auto rounded-3xl transition-transform transform hover:scale-105"
         />
       </div>
 
