@@ -3,7 +3,7 @@ import assets from '../assets/Card.png';
  
 const CardView = ({ image, title, description, buttonText }) => {
   return (
-    <div className="max-w-sm w-full rounded-lg overflow-hidden shadow-lg bg-white">
+    <div className="max-w-sm w-full rounded-lg shadow-lg bg-white">
       {/* Card Image */}
       <div>
         <img

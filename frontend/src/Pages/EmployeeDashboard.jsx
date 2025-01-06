@@ -87,16 +87,6 @@ const EmployeeDashboard = () => {
               />
             </Link>
  
-            {/* View Assets Card */}
-            {/* 
-            <Link to="/employee/assets" className="transition-transform transform hover:scale-105">
-              <CardView
-                description="View all your assigned assets."
-                title="My Assets"
-                buttonText="View"
-              />
-            </Link>
-            */}
             
             {/* Asset Replacement Card */}
             <Link to="/replace-asset" className="transition-transform transform hover:scale-105">
