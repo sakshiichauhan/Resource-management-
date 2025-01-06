@@ -1,5 +1,5 @@
 import React from "react";
-import DashboardCard from "../components/DashboardCard";
+
 import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
