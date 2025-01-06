@@ -7,7 +7,7 @@ const useAuthRedirect = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
+    if (user && window.location.pathname === '/login') {
       const dashboardPath = user.role === "admin" ? "/admindash" : "/employeedash";
       navigate(dashboardPath, { replace: true });
     }

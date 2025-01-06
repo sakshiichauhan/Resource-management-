@@ -16,7 +16,8 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
+    // Only redirect if user exists and they're on the root path
+    if (user && window.location.pathname === '/') {
       if (user.role === 'admin') {
         navigate('/admindash');
       } else if (user.role === 'employee') {
@@ -47,12 +48,20 @@ const Navbar = () => {
           <h1 className="text-2xl font-bold">AssetManagement</h1>
         </div>
 
-        {/* Conditional Admin Links */}
+        {/* Conditional Links Based on Role */}
         {user && user.role === 'admin' && (
           <div className="flex items-center gap-4">
             <Link to="/admindash" className="hover:text-yellow-400">Admin Dashboard</Link>
             <Link to="/admin/users" className="hover:text-yellow-400">Users</Link>
             <Link to="/admin/assets" className="hover:text-yellow-400">Assets</Link>
+          </div>
+        )}
+
+        {user && user.role === 'employee' && (
+          <div className="flex items-center gap-4">
+            <Link to="/employeedash" className="hover:text-yellow-400">Employee Dashboard</Link>
+            <Link to="/" className="hover:text-yellow-400">Home</Link>
+            <Link to="/request-asset" className="hover:text-yellow-400">Assets</Link>
           </div>
         )}
 
@@ -89,7 +98,16 @@ const Navbar = () => {
           ) : (
             <div className="flex gap-2">
               <Link to="/login">
-                <Button variant="outline" className="text-gray-800 bg-white">Login</Button>
+                <Button 
+                  variant="outline" 
+                  className="text-gray-800 bg-white"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate('/login');
+                  }}
+                >
+                  Login
+                </Button>
               </Link>
               <Link to="/signup">
                 <Button className="bg-[#6A38C2] hover:bg-[#5b30a6] text-white">Signup</Button>

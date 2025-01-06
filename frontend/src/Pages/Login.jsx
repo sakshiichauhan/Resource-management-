@@ -63,13 +63,6 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      navigate("/"); // Redirect to home if already logged in
-    }
-  }, [navigate]);
-
   return (
     <div className="flex items-center justify-center max-w-7xl mx-auto">
       <form
