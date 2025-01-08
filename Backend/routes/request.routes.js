@@ -7,7 +7,7 @@ import {
 
 const requestrouter = express.Router();
 
-requestrouter.post("/createreq", createAssetRequest); 
+requestrouter.post("/createreq-asset", createAssetRequest); 
 requestrouter.get("/getreq/", getAllAssetRequests); 
 requestrouter.put("/updatereq/:id", updateAssetRequestStatus); 
 

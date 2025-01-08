@@ -21,8 +21,7 @@ const userSchema = new mongoose.Schema({
     employee: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Employee',
-        default: null,
-      },
+    },
 },{timestamps:true});
 
 const User = mongoose.model.userModel || mongoose.model('User', userSchema);

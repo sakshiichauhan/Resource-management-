@@ -10,6 +10,7 @@ import AssetRequestForm from "./Pages/RequestAsset";
 import EmployeeDashboard from "./Pages/EmployeeDashboard";
 import ReplacementForm from "./Pages/ReplacementForm";
 import MaintenanceRequestForm from "./Pages/ManagementForm";
+import Profile from "./components/Profile";
 function App() {
   return (
     <>
@@ -23,6 +24,8 @@ function App() {
         <Route path="/request-asset" element={<AssetRequestForm />} />
         <Route path="/maintain-asset" element={<MaintenanceRequestForm />} />
         <Route path="/replace-asset" element={<ReplacementForm />} />
+        <Route path="/profile" element={<Profile/>}/>
+
       </Routes>
     </>
   );
