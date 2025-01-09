@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { setUser, setLoading } from "../redux/authSlice";
 import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
@@ -64,14 +64,16 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center max-w-7xl mx-auto">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-400 to-purple-600">
       <form
         onSubmit={submitHandler}
-        className="w-full max-w-md border border-gray-200 rounded-md p-6 my-10"
+        className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg mt-10"
       >
-        <h1 className="font-bold text-2xl mb-6 text-center">Login</h1>
+        <h1 className="font-bold text-3xl mb-8 text-center text-purple-700">Login</h1>
+        
+        {/* Email Field */}
         <div className="my-4">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email" className="text-lg text-gray-700">Email</Label>
           <Input
             id="email"
             type="email"
@@ -79,11 +81,13 @@ const Login = () => {
             name="email"
             onChange={changeEventHandler}
             placeholder="example@gmail.com"
-            className="w-full"
+            className="w-full mt-2 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
+
+        {/* Password Field */}
         <div className="my-4">
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password" className="text-lg text-gray-700">Password</Label>
           <Input
             id="password"
             type="password"
@@ -91,12 +95,14 @@ const Login = () => {
             name="password"
             onChange={changeEventHandler}
             placeholder="**********"
-            className="w-full"
+            className="w-full mt-2 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
+
+        {/* Role Selection */}
         <div className="my-6">
-          <Label>Role</Label>
-          <RadioGroup className="flex items-center gap-4 my-4">
+          <Label className="text-lg text-gray-700">Role</Label>
+          <RadioGroup className="flex items-center gap-4 mt-4">
             <div className="flex items-center space-x-2">
               <Input
                 id="employee"
@@ -107,7 +113,7 @@ const Login = () => {
                 onChange={changeEventHandler}
                 className="cursor-pointer"
               />
-              <Label htmlFor="employee">Employee</Label>
+              <Label htmlFor="employee" className="text-sm">Employee</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Input
@@ -119,23 +125,27 @@ const Login = () => {
                 onChange={changeEventHandler}
                 className="cursor-pointer"
               />
-              <Label htmlFor="admin">Admin</Label>
+              <Label htmlFor="admin" className="text-sm">Admin</Label>
             </div>
           </RadioGroup>
         </div>
+
+        {/* Submit Button */}
         {loading ? (
-          <Button disabled className="w-full flex items-center justify-center">
+          <Button disabled className="w-full flex items-center justify-center bg-purple-500 text-white p-3 rounded-md hover:bg-purple-600 transition duration-300">
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Logging in...
           </Button>
         ) : (
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full bg-purple-600 text-white p-3 rounded-md hover:bg-purple-700 transition duration-300">
             Login
           </Button>
         )}
-        <div className="mt-4 text-sm text-center">
+
+        {/* Signup Link */}
+        <div className="mt-4 text-sm text-center text-gray-600">
           Don’t have an account?{" "}
-          <Link to="/signup" className="text-blue-600">
+          <Link to="/signup" className="text-blue-600 hover:text-blue-800">
             Signup
           </Link>
         </div>
