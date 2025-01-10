@@ -43,7 +43,7 @@ const AssetRequestForm = () => {
         e.preventDefault();
 
         if ( input.priorityLevel || !input.employee || !input.assetCategory) {
-            return toast.error("Please fill in all the required fields.");
+            return toast.error("submitted.");
         }
 
         if (new Date(input.requiredByDate) < new Date()) {

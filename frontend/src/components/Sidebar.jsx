@@ -29,9 +29,9 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            to="/employee/requests"
+            to="/request-asset"
             className={`block px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-200 ${
-              location.pathname === "/employee/requests" ? "bg-blue-600" : ""
+              location.pathname === "/request-asset" ? "bg-blue-600" : ""
             }`}
           >
             Asset Requests
@@ -39,9 +39,9 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            to="/employee/maintenance"
+            to="/maintain-asset"
             className={`block px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-200 ${
-              location.pathname === "/employee/maintenance" ? "bg-blue-600" : ""
+              location.pathname === "/maintain-asset" ? "bg-blue-600" : ""
             }`}
           >
             Maintenance Requests

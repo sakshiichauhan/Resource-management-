@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import assets from '../assets/Alphericlogo.png';
+import assets from '../assets/icon.png';
 import { Popover, PopoverTrigger, PopoverContent } from './ui/popover';
 import { User2, LogOut } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';

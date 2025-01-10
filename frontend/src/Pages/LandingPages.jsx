@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
-import assets from "../assets/assetpic.png";
+import assets from "../assets/Artboard.png";
 
 const LandingPage = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -48,7 +48,7 @@ const LandingPage = () => {
         <img
           src={assets}
           alt="Asset Management System illustration"
-          className="w-full h-auto rounded-3xl transition-transform transform hover:scale-105"
+          className="w-full h-auto rounded-3xl"
         />
       </div>
 
