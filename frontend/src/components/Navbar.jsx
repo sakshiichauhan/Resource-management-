@@ -9,6 +9,7 @@ import { setUser } from '../redux/authSlice';
 import { toast } from 'sonner';
 import { USER_API_END_POINT } from '@/utils/constant';
 import { Button } from './ui/button';
+import logo_white from "../assets/logo-white.png"
 
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth); // Access user from Redux store
@@ -40,12 +41,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-indigo-500 via-purple-400 to-purple-600 text-white p-3 gap-x-3">
+    <nav className="font-mono bg-gradient-to-r from-indigo-500 via-purple-400 to-purple-600 text-white p-3 gap-x-3">
       <div className="flex items-center justify-between max-w-7xl mx-auto w-full">
         {/* Logo Section */}
         <div className="flex items-center">
-          <img src={assets} alt="Logo" className="w-10 h-auto mr-4" />
-          <h1 className="text-2xl font-bold">AssetManagement</h1>
+          <img src={logo_white} alt="Logo" className="w-10 h-auto mr-4" />
+          <h1 className="text-2xl font-bold">assetflow</h1>
         </div>
 
         {/* Conditional Links Based on Role */}
@@ -100,7 +101,7 @@ const Navbar = () => {
               <Link to="/login">
                 <Button 
                   variant="outline" 
-                  className="text-gray-800 bg-white"
+                  className="font-mono py-3 px-6 bg-purple-900 rounded-full text-white text-lg font-semibold shadow-lg hover:text-purple-900 hover:bg-white"
                   onClick={(e) => {
                     e.preventDefault();
                     navigate('/login');
@@ -110,7 +111,9 @@ const Navbar = () => {
                 </Button>
               </Link>
               <Link to="/signup">
-                <Button className="bg-[#6A38C2] hover:bg-[#5b30a6] text-white">Signup</Button>
+                <Button
+                variant="outline" 
+                className="font-mono py-3 px-6 bg-white rounded-full text-purple-900 text-lg font-semibold shadow-lg hover:text-white hover:bg-purple-900">Signup</Button>
               </Link>
             </div>
           )}
@@ -121,3 +124,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+

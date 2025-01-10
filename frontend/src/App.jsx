@@ -1,31 +1,39 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LandingPage from "../src/Pages/LandingPages";
-import Signup from "../src/Pages/Signup";
-import Login from "../src/Pages/Login";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import AdminDashboard from "../src/Pages/AdminDashboard";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
+// import Sidebar from "./components/Sidebar";
 import AssetRequestForm from "./Pages/RequestAsset";
 import EmployeeDashboard from "./Pages/EmployeeDashboard";
 import ReplacementForm from "./Pages/ReplacementForm";
 import MaintenanceRequestForm from "./Pages/ManagementForm";
 import Profile from "./components/Profile";
+import Landing from "./Pages/Landing";
+import LoginPage from "./Pages/LoginPage";
+import SignUpPage from "./Pages/SignupPage";
+import PageNotFound from "./Pages/PageNotFound";
+
 function App() {
+  const location = useLocation();
+  const hideNavbarRoutes = ["/", "/signup", "/login", "/404"];
+
   return (
     <>
-      <Navbar />
+      {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
+      
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/signup" element={<SignUpPage/>}/>
         <Route path="/admindash" element={<AdminDashboard />} />
         <Route path="/employeedash" element={<EmployeeDashboard />} />
         <Route path="/request-asset" element={<AssetRequestForm />} />
         <Route path="/maintain-asset" element={<MaintenanceRequestForm />} />
         <Route path="/replace-asset" element={<ReplacementForm />} />
-        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/profile" element={<Profile />} />
 
+        <Route path="/404" element= {<PageNotFound/>} />
+        <Route path="*" element = {<Navigate to="/404"/>} />
       </Routes>
     </>
   );
